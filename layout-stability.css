@@ -1,0 +1,7 @@
+/* 洞口版面鎖定：角色出現與消失不得改變洞口位置或尺寸 */
+.hole-grid{align-content:stretch;grid-auto-rows:minmax(0,1fr);min-height:0}
+.hole{width:100%;min-width:0;min-height:0;aspect-ratio:1 / 1;overflow:visible}
+.hole.hidden{visibility:visible;opacity:1}
+.hole .pika-choice{visibility:visible!important;opacity:1!important;pointer-events:auto}
+.hole.hidden .pika-choice{visibility:hidden!important;opacity:0!important;pointer-events:none}
+@media(max-width:760px){.hole-grid{min-height:0}.hole{aspect-ratio:1 / 1}}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#24164b" />
+  <title>動物運動反應訓練場</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="answer-labels.css" />
+  <link rel="stylesheet" href="layout-stability.css" />
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="title-screen" class="screen active" aria-label="首頁">
+      <div class="title-card panel">
+        <p class="eyebrow">自然科學 × 反應遊戲</p>
+        <h1>動物運動<br><span>反應訓練場</span></h1>
+        <div class="hero-pika pika-large" aria-label="皮卡丘主角"><span class="pika-ear left"></span><span class="pika-ear right"></span><span class="pika-face"><i class="eye left"></i><i class="eye right"></i><i class="cheek left"></i><i class="cheek right"></i><i class="mouth"></i></span><span class="pika-tail"></span></div>
+        <p class="subtitle">幫助研究員找出正確的動物運動方式！</p>
+        <button class="primary-btn" data-action="start-intro">開始研究</button>
+      </div>
+    </section>
+
+    <section id="map-screen" class="screen" aria-label="主地圖">
+      <div class="topbar"><div><span class="eyebrow">動物運動研究所</span><h2>研究園區</h2></div><button class="ghost-btn" data-action="home">回首頁</button></div>
+      <div class="map-grid">
+        <button class="stage-card stage-one unlocked" data-stage="1"><span class="stage-number">01</span><strong>草地觀察區</strong><small>3 × 3 洞口｜基礎題</small><span class="stage-status">開始研究</span></button>
+        <button class="stage-card locked" data-stage="2"><span class="stage-number">02</span><strong>森林池塘區</strong><small>4 × 4 洞口｜分類題</small><span class="stage-status">完成第一關解鎖</span></button>
+        <button class="stage-card locked" data-stage="3"><span class="stage-number">03</span><strong>天空研究區</strong><small>5 × 5 洞口｜綜合題</small><span class="stage-status">完成第二關解鎖</span></button>
+      </div>
+      <div class="map-npc panel"><div class="npc-avatar">森</div><div><strong>小森博士</strong><p>先從草地觀察區開始吧！仔細看題目，再敲對答案。</p></div></div>
+    </section>
+
+    <section id="intro-screen" class="screen" aria-label="教學說明">
+      <div class="dialogue panel"><div class="npc-avatar big">森</div><p class="eyebrow">小森博士的任務說明</p><h2 id="intro-title">歡迎來到研究所！</h2><p id="intro-text">我們要觀察動物是怎麼移動的。每一關要在 80 秒內答對 10 題。</p><div class="dialogue-actions"><button class="ghost-btn" data-action="intro-back">返回</button><button class="primary-btn" data-action="intro-next">下一步</button></div><div class="step-dots"><i class="on"></i><i></i><i></i></div></div>
+    </section>
+
+    <section id="game-screen" class="screen" aria-label="遊戲關卡">
+      <div class="game-header"><div><p class="eyebrow">第一關｜草地觀察區</p><h2>青蛙是用什麼方式移動？</h2></div><div class="hud"><span class="timer">時間 <b id="timer">80</b></span><span class="hearts" id="hearts">♥ ♥ ♥ ♥ ♥</span></div></div>
+      <div class="progress-row"><span>答對 <b id="score">0</b> / 10 題</span><div class="progress"><i id="progress-fill"></i></div><span>連續 <b id="combo">0</b></span></div>
+      <div id="hole-grid" class="hole-grid grid-3" aria-label="答案洞口"></div>
+      <div class="answer-hint"><span>提示：敲擊帶有正確答案的皮卡丘</span><button class="ghost-btn small-btn" data-action="quit-game">離開關卡</button></div>
+    </section>
+
+    <section id="result-screen" class="screen" aria-label="結果">
+      <div class="result-card panel"><div id="result-icon" class="result-icon">★</div><p class="eyebrow" id="result-eyebrow">研究結果</p><h2 id="result-title">太棒了！</h2><p id="result-text">你完成了第一關。</p><div class="result-stats"><span>答對 <b id="result-score">0</b> 題</span><span>剩餘 <b id="result-time">0</b> 秒</span></div><button class="primary-btn" data-action="result-next">返回研究園區</button></div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
